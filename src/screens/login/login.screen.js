@@ -10,14 +10,14 @@ import {
 
 import Styles from './login.style';
 
-export function LoginScreen() {
+export function LoginScreen(props) {
   const [fadeAnim] = useState(new Animated.Value(0));
   const [RotateValueHolder] = useState(new Animated.Value(0));
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 3000,
+      duration: 1000,
     }).start();
     StartImageRotateFunction();
   }, []);
@@ -25,7 +25,7 @@ export function LoginScreen() {
   function StartImageRotateFunction() {
     Animated.timing(RotateValueHolder, {
       toValue: 1,
-      duration: 3000,
+      duration: 1000,
       easing: Easing.linear,
     }).start();
   }
@@ -34,6 +34,12 @@ export function LoginScreen() {
     inputRange: [0, 1],
     outputRange: ['0deg', '360deg'],
   });
+
+  function goToHomeScreen() {
+    const { navigation } = props;
+
+    navigation.navigate('HomeScreen');
+  }
 
   return (
     <Animated.View
@@ -55,7 +61,7 @@ export function LoginScreen() {
         secureTextEntry={true}
         autoCorrect={false}
       />
-      <TouchableOpacity style={Styles.button}>
+      <TouchableOpacity onPress={goToHomeScreen} style={Styles.button}>
         <Text style={Styles.buttonText}>LOGIN</Text>
       </TouchableOpacity>
     </Animated.View>
