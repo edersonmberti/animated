@@ -1,7 +1,7 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import { Home, Fade, Rotate } from './screens';
+import { Home, Fade, Rotate, Lottie } from './screens';
 
 const Routes = createAppContainer(
   createStackNavigator({
@@ -21,6 +21,12 @@ const Routes = createAppContainer(
       screen: Rotate,
       navigationOptions: {
         title: 'Rotate',
+      },
+    },
+    Lottie: {
+      screen: Lottie,
+      navigationOptions: {
+        title: 'Lottie',
       },
     },
   }),

@@ -18,6 +18,11 @@ export function Home(props) {
         style={styles.button}>
         <Text style={styles.buttonText}>ROTATE</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigate('Lottie')}
+        style={styles.button}>
+        <Text style={styles.buttonText}>LOTTIE</Text>
+      </TouchableOpacity>
     </View>
   );
 }
